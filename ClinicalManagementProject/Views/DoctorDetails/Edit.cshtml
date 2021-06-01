@@ -1,0 +1,68 @@
+﻿@model ClinicalManagementProject.Models.DoctorDetails
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Doctor Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DoctorId" />
+            <div class="form-group">
+                <label asp-for="DoctorFirstName" class="control-label"></label>
+                <input asp-for="DoctorFirstName" class="form-control" />
+                <span asp-validation-for="DoctorFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorLastName" class="control-label"></label>
+                <input asp-for="DoctorLastName" class="form-control" />
+                <span asp-validation-for="DoctorLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Sex" class="control-label"></label><br />
+                @Html.RadioButtonFor(model => model.Sex, "Male")
+                Male<br />
+                @Html.RadioButtonFor(model => model.Sex, "Female")
+                Female<br />
+                @Html.RadioButtonFor(model => model.Sex, "Others")
+                Others<br />
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialization" class="control-label"></label>
+                <select class="form-control" id="Specialization" name="Specialization">
+                    <option disabled selected>Choose a Specialization</option>
+                    <option> General</option>
+                    <option>Internal Medicine</option>
+                    <option>Pediatrics</option>
+                    <option>Orthopedics</option>
+                    <option>Ophthalmology</option>
+                </select>
+                <span asp-validation-for="Specialization" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input asp-for="EndTime" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-success">Back to Doctors</a>
+</div>
+
